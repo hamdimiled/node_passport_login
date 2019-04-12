@@ -14,13 +14,15 @@ require('./config/passport')(passport);
 const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
-mongoose
-  .connect(
-    db,
+
+
+  mongoose.connect(
+    'mongodb://root:rootroot1@ds239206.mlab.com:39206/login_passport',
     { useNewUrlParser: true }
   )
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+    .then(() => console.log('default', 'Connection to database established'))
+    .catch(err => logger.log('error', err));
+  
 
 // EJS
 app.use(expressLayouts);
